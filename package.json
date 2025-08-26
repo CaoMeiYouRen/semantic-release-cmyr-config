@@ -35,9 +35,11 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage"
   },
-  "devDependencies": {
+  "dependencies": {
     "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/git": "^10.0.1"
+  },
+  "devDependencies": {
     "@types/debug": "^4.1.12",
     "@types/node": "^24.3.0",
     "commitizen": "^4.3.1",
@@ -59,6 +61,14 @@
     "typescript": "^5.9.2",
     "vite": "^6.0.1",
     "vitest": "^2.1.6"
+  },
+  "peerDependencies": {
+    "semantic-release": ">=19"
+  },
+  "peerDependenciesMeta": {
+    "semantic-release": {
+      "optional": false
+    }
   },
   "config": {},
   "changelog": {
@@ -84,9 +94,6 @@
   },
   "bugs": {
     "url": "https://github.com/CaoMeiYouRen/semantic-release-cmyr-config/issues"
-  },
-  "dependencies": {
-    "tslib": "^2.8.1"
   },
   "pnpm": {
     "overrides": {
