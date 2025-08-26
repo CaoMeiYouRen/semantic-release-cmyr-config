@@ -4,21 +4,13 @@ updates:
     directory: /
     open-pull-requests-limit: 20
     schedule:
-      interval: daily
+      interval: monthly
       time: "04:00"
       timezone: Asia/Shanghai
-    ignore:
-      - dependency-name: semantic-release
-      - dependency-name: "@commitlint/config-conventional"
-        versions:
-          - ">= 19.0.0"
-      - dependency-name: "@commitlint/cli"
-        versions:
-          - ">= 19.0.0"
   - package-ecosystem: github-actions
     directory: /
     open-pull-requests-limit: 20
     schedule:
-      interval: weekly
+      interval: monthly
       time: "04:00"
       timezone: Asia/Shanghai
