@@ -8,7 +8,7 @@ export default defineConfig({
     fixedExtension: true, // 保持输出文件的扩展名一致
     hash: false, // 不添加哈希到输出文件名
     nodeProtocol: true, // 为内置模块添加 node: 前缀（例如，fs → node:fs）
-    sourcemap: true,
+    sourcemap: false,
     clean: true,
     dts: true,
     minify: false, // 缩小输出
