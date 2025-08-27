@@ -15,7 +15,7 @@ overrides:
   tmp: ^0.2.4
   '@semantic-release/commit-analyzer': ^13.0.1
   '@semantic-release/error': ^4.0.0
-  '@semantic-release/github': ^11.0.0
+  '@semantic-release/github': ^11.0.4
   '@semantic-release/npm': ^12.0.2
   '@semantic-release/release-notes-generator': ^14.0.3
   conventional-changelog-conventionalcommits: ^9.1.0
@@ -30,6 +30,9 @@ importers:
       '@semantic-release/git':
         specifier: ^10.0.1
         version: 10.0.1(semantic-release@24.2.7(typescript@5.9.2))
+      conventional-changelog-cmyr-config:
+        specifier: 3.0.0-beta.3
+        version: 3.0.0-beta.3
     devDependencies:
       '@types/debug':
         specifier: ^4.1.12
@@ -46,9 +49,6 @@ importers:
       commitlint-config-cmyr:
         specifier: ^1.0.0-beta.1
         version: 1.0.0-beta.1
-      conventional-changelog-cmyr-config:
-        specifier: 3.0.0-beta.3
-        version: 3.0.0-beta.3
       cross-env:
         specifier: ^10.0.0
         version: 10.0.0
