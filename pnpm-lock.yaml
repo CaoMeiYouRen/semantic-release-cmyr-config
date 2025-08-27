@@ -34,6 +34,9 @@ importers:
       conventional-changelog-cmyr-config:
         specifier: 3.0.0-beta.3
         version: 3.0.0-beta.3
+      conventional-changelog-writer:
+        specifier: ^8.2.0
+        version: 8.2.0
     devDependencies:
       '@types/debug':
         specifier: ^4.1.12
