@@ -1,6 +1,6 @@
 {
   "name": "semantic-release-cmyr-config",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0",
   "description": "草梅友仁自定义的 semantic-release 配置",
   "author": "CaoMeiYouRen",
   "private": false,
