@@ -41,12 +41,6 @@
     "conventional-changelog-cmyr-config": "3.0.0-beta.3"
   },
   "devDependencies": {
-    "@semantic-release/commit-analyzer": "^13.0.1",
-    "@semantic-release/error": "^4.0.0",
-    "@semantic-release/github": "^11.0.4",
-    "@semantic-release/npm": "^12.0.2",
-    "@semantic-release/release-notes-generator": "^14.0.3",
-    "conventional-changelog-conventionalcommits": "^9.1.0",
     "@types/debug": "^4.1.12",
     "@types/node": "^24.3.0",
     "commitizen": "^4.3.1",
@@ -68,7 +62,7 @@
     "vitest": "^2.1.6"
   },
   "peerDependencies": {
-    "semantic-release": ">=19"
+    "semantic-release": ">=24"
   },
   "peerDependenciesMeta": {
     "semantic-release": {
@@ -90,7 +84,8 @@
       "@semantic-release/github": "^11.0.4",
       "@semantic-release/npm": "^12.0.2",
       "@semantic-release/release-notes-generator": "^14.0.3",
-      "conventional-changelog-conventionalcommits": "^9.1.0"
+      "conventional-changelog-conventionalcommits": "^9.1.0",
+      "conventional-changelog-writer": "^8.2.0"
     }
   },
   "changelog": {

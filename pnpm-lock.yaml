@@ -19,6 +19,7 @@ overrides:
   '@semantic-release/npm': ^12.0.2
   '@semantic-release/release-notes-generator': ^14.0.3
   conventional-changelog-conventionalcommits: ^9.1.0
+  conventional-changelog-writer: ^8.2.0
 
 importers:
 
@@ -34,21 +35,6 @@ importers:
         specifier: 3.0.0-beta.3
         version: 3.0.0-beta.3
     devDependencies:
-      '@semantic-release/commit-analyzer':
-        specifier: ^13.0.1
-        version: 13.0.1(semantic-release@24.2.7(typescript@5.9.2))
-      '@semantic-release/error':
-        specifier: ^4.0.0
-        version: 4.0.0
-      '@semantic-release/github':
-        specifier: ^11.0.4
-        version: 11.0.4(semantic-release@24.2.7(typescript@5.9.2))
-      '@semantic-release/npm':
-        specifier: ^12.0.2
-        version: 12.0.2(semantic-release@24.2.7(typescript@5.9.2))
-      '@semantic-release/release-notes-generator':
-        specifier: ^14.0.3
-        version: 14.0.3(semantic-release@24.2.7(typescript@5.9.2))
       '@types/debug':
         specifier: ^4.1.12
         version: 4.1.12
@@ -64,9 +50,6 @@ importers:
       commitlint-config-cmyr:
         specifier: ^1.0.0-beta.1
         version: 1.0.0-beta.1
-      conventional-changelog-conventionalcommits:
-        specifier: ^9.1.0
-        version: 9.1.0
       cross-env:
         specifier: ^10.0.0
         version: 10.0.0
@@ -871,9 +854,6 @@ packages:
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
 
-  '@types/semver@7.5.8':
-    resolution: {integrity: sha512-I8EUhyrgfLrcTkzV3TSsGyl1tSuPrEDzr0yd5m90UgNxQkyDXULk3b6MlQqTCpZpNtWe1K0hzclnZkTcLBe2UQ==}
-
   '@types/unist@2.0.10':
     resolution: {integrity: sha512-IfYcSBWE3hLpBg8+X2SEa8LVkJdJEkT2Ese2aaLs3ptGdVtABxndrMaxuFlQ1qdFf9Q5rDvDpxI3WwgvKFAsQA==}
 
@@ -1302,8 +1282,8 @@ packages:
     resolution: {integrity: sha512-MnbEysR8wWa8dAEvbj5xcBgJKQlX/m0lhS8DsyAAWDHdfs2faDJxTgzRYlRYpXSe7UiKrIIlB4TrBKU9q9DgkA==}
     engines: {node: '>=18'}
 
-  conventional-changelog-writer@8.0.0:
-    resolution: {integrity: sha512-TQcoYGRatlAnT2qEWDON/XSfnVG38JzA7E0wcGScu7RElQBkg9WWgZd1peCWFcWDh1xfb2CfsrcvOn1bbSzztA==}
+  conventional-changelog-writer@8.2.0:
+    resolution: {integrity: sha512-Y2aW4596l9AEvFJRwFGJGiQjt2sBYTjPD18DdvxX9Vpz0Z7HQ+g1Z+6iYDAm1vR3QOJrDBkRHixHK/+FhkR6Pw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4503,7 +4483,7 @@ snapshots:
   '@semantic-release/commit-analyzer@13.0.1(semantic-release@24.2.7(typescript@5.9.2))':
     dependencies:
       conventional-changelog-angular: 8.0.0
-      conventional-changelog-writer: 8.0.0
+      conventional-changelog-writer: 8.2.0
       conventional-commits-filter: 5.0.0
       conventional-commits-parser: 6.0.0
       debug: 4.4.1
@@ -4572,7 +4552,7 @@ snapshots:
   '@semantic-release/release-notes-generator@14.0.3(semantic-release@24.2.7(typescript@5.9.2))':
     dependencies:
       conventional-changelog-angular: 8.0.0
-      conventional-changelog-writer: 8.0.0
+      conventional-changelog-writer: 8.2.0
       conventional-commits-filter: 5.0.0
       conventional-commits-parser: 6.0.0
       debug: 4.4.1
@@ -4633,8 +4613,6 @@ snapshots:
       undici-types: 7.10.0
 
   '@types/normalize-package-data@2.4.4': {}
-
-  '@types/semver@7.5.8': {}
 
   '@types/unist@2.0.10': {}
 
@@ -5139,9 +5117,8 @@ snapshots:
     dependencies:
       compare-func: 2.0.0
 
-  conventional-changelog-writer@8.0.0:
+  conventional-changelog-writer@8.2.0:
     dependencies:
-      '@types/semver': 7.5.8
       conventional-commits-filter: 5.0.0
       handlebars: 4.7.8
       meow: 13.2.0
