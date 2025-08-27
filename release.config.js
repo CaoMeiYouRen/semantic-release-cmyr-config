@@ -1,6 +1,5 @@
+import config from './dist/index.mjs'
 /**
  * @type {import('semantic-release').GlobalConfig}
  */
-export default {
-    extends: ['./dist/index.mjs'],
-}
+export default config

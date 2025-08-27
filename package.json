@@ -1,6 +1,6 @@
 {
   "name": "semantic-release-cmyr-config",
-  "version": "0.1.0",
+  "version": "1.0.0-beta.2",
   "description": "草梅友仁自定义的 semantic-release 配置",
   "author": "CaoMeiYouRen",
   "private": false,
@@ -35,21 +35,23 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage"
   },
-  "devDependencies": {
+  "dependencies": {
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
+    "conventional-changelog-cmyr-config": "^3.0.0",
+    "conventional-changelog-writer": "^8.2.0"
+  },
+  "devDependencies": {
     "@types/debug": "^4.1.12",
     "@types/node": "^24.3.0",
     "commitizen": "^4.3.1",
     "commitlint": "^19.8.1",
-    "commitlint-config-cmyr": "^1.0.0-beta.1",
-    "conventional-changelog-cmyr-config": "3.0.0-beta.1",
+    "commitlint-config-cmyr": "^1.0.0",
     "cross-env": "^10.0.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "cz-conventional-changelog-cmyr": "2.0.0-beta.3",
+    "cz-conventional-changelog-cmyr": "^2.0.0",
     "debug": "^4.4.1",
     "eslint": "^9.34.0",
-    "eslint-config-cmyr": "2.0.0-beta.15",
+    "eslint-config-cmyr": "^2.0.0-beta.15",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.5",
     "rimraf": "^6.0.1",
@@ -60,7 +62,33 @@
     "vite": "^6.0.1",
     "vitest": "^2.1.6"
   },
-  "config": {},
+  "peerDependencies": {
+    "semantic-release": ">=24"
+  },
+  "peerDependenciesMeta": {
+    "semantic-release": {
+      "optional": false
+    }
+  },
+  "pnpm": {
+    "overrides": {
+      "compare-func": "^2.0.0",
+      "katex": "^0.16.21",
+      "esbuild": "^0.25.0",
+      "@octokit/plugin-paginate-rest": "^11.4.1",
+      "@octokit/request": "^9.2.1",
+      "@octokit/request-error": "^5.1.1",
+      "brace-expansion": "^2.0.2",
+      "tmp": "^0.2.4",
+      "@semantic-release/commit-analyzer": "^13.0.1",
+      "@semantic-release/error": "^4.0.0",
+      "@semantic-release/github": "^11.0.4",
+      "@semantic-release/npm": "^12.0.2",
+      "@semantic-release/release-notes-generator": "^14.0.3",
+      "conventional-changelog-conventionalcommits": "^9.1.0",
+      "conventional-changelog-writer": "^8.2.0"
+    }
+  },
   "changelog": {
     "language": "zh"
   },
@@ -84,21 +112,6 @@
   },
   "bugs": {
     "url": "https://github.com/CaoMeiYouRen/semantic-release-cmyr-config/issues"
-  },
-  "dependencies": {
-    "tslib": "^2.8.1"
-  },
-  "pnpm": {
-    "overrides": {
-      "compare-func": "^2.0.0",
-      "katex": "^0.16.21",
-      "esbuild": "^0.25.0",
-      "@octokit/plugin-paginate-rest": "^11.4.1",
-      "@octokit/request": "^9.2.1",
-      "@octokit/request-error": "^5.1.1",
-      "brace-expansion": "^2.0.2",
-      "tmp": "^0.2.4"
-    }
   },
   "type": "module",
   "publishConfig": {
