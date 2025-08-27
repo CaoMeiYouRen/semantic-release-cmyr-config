@@ -41,8 +41,8 @@ importers:
         specifier: ^1.0.0-beta.1
         version: 1.0.0-beta.1
       conventional-changelog-cmyr-config:
-        specifier: 3.0.0-beta.1
-        version: 3.0.0-beta.1
+        specifier: 3.0.0-beta.2
+        version: 3.0.0-beta.2
       cross-env:
         specifier: ^10.0.0
         version: 10.0.0
@@ -1277,8 +1277,8 @@ packages:
     resolution: {integrity: sha512-CLf+zr6St0wIxos4bmaKHRXWAcsCXrJU6F4VdNDrGRK3B8LDLKoX3zuMV5GhtbGkVR/LohZ6MT6im43vZLSjmA==}
     engines: {node: '>=18'}
 
-  conventional-changelog-cmyr-config@3.0.0-beta.1:
-    resolution: {integrity: sha512-pOlu/pAvVB80VkmsSlr2E7Wo8g5SrRjJDDTm0CRXKfVHt7JlFvcjAnXHPfTSaoOWl7G9sjq5erVeDAVyw9HjNA==}
+  conventional-changelog-cmyr-config@3.0.0-beta.2:
+    resolution: {integrity: sha512-PDJUtXx/E3KYNl4XoowKGZndzQx6W9RQR/GqsRgRiBg/ohX7K06L+S3LBRLsPIfXhDhqMV2kIypJp61Lg6lZEg==}
     engines: {node: '>=20.10'}
 
   conventional-changelog-conventionalcommits@7.0.2:
@@ -5113,7 +5113,7 @@ snapshots:
     dependencies:
       compare-func: 2.0.0
 
-  conventional-changelog-cmyr-config@3.0.0-beta.1:
+  conventional-changelog-cmyr-config@3.0.0-beta.2:
     dependencies:
       compare-func: 2.0.0
       debug: 4.4.1
