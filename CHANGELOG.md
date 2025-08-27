@@ -1,5 +1,12 @@
 # semantic-release-cmyr-config
 
+# [1.0.0-beta.2](https://github.com/CaoMeiYouRen/semantic-release-cmyr-config/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2025-08-27)
+
+
+### 🐛 Bug 修复
+
+* 更新依赖项并简化 release.config.js 配置 ([eab5df2](https://github.com/CaoMeiYouRen/semantic-release-cmyr-config/commit/eab5df2))
+
 # 1.0.0-beta.1 (2025-08-27)
 
 
