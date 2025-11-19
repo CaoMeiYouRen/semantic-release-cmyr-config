@@ -1,5 +1,12 @@
 # semantic-release-cmyr-config
 
+## [1.0.1](https://github.com/CaoMeiYouRen/semantic-release-cmyr-config/compare/v1.0.0...v1.0.1) (2025-11-19)
+
+
+### 🐛 Bug 修复
+
+* resolve security vulnerabilities in glob and js-yaml dependencies ([bbefc58](https://github.com/CaoMeiYouRen/semantic-release-cmyr-config/commit/bbefc58))
+
 # 1.0.0 (2025-08-27)
 
 
