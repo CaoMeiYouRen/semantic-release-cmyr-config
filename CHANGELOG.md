@@ -1,5 +1,14 @@
 # semantic-release-cmyr-config
 
+## [1.0.2](https://github.com/CaoMeiYouRen/semantic-release-cmyr-config/compare/v1.0.1...v1.0.2) (2026-04-15)
+
+
+### 🐛 Bug 修复
+
+* **deps-dev:** 更新依赖包版本 ([aa0449c](https://github.com/CaoMeiYouRen/semantic-release-cmyr-config/commit/aa0449c))
+* **deps:** 更新 brace-expansion 依赖版本 ([ad9e5d0](https://github.com/CaoMeiYouRen/semantic-release-cmyr-config/commit/ad9e5d0))
+* **deps:** 更新 brace-expansion 依赖版本至 5.0.5 ([3655f6c](https://github.com/CaoMeiYouRen/semantic-release-cmyr-config/commit/3655f6c))
+
 ## [1.0.1](https://github.com/CaoMeiYouRen/semantic-release-cmyr-config/compare/v1.0.0...v1.0.1) (2025-11-19)
 
 
