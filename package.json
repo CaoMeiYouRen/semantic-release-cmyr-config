@@ -92,7 +92,10 @@
       "glob": "^11.1.0",
       "js-yaml": "^4.1.1",
       "handlebars": "^4.7.9"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   },
   "changelog": {
     "language": "zh"
