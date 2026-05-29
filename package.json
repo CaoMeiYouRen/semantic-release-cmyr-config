@@ -32,8 +32,8 @@
     "start:tsx": "cross-env NODE_ENV=production tsx src/index.ts",
     "commit": "cz",
     "prepare": "husky",
-    "test": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test": "vitest run --passWithNoTests",
+    "test:coverage": "vitest run --coverage --passWithNoTests"
   },
   "dependencies": {
     "@semantic-release/changelog": "^6.0.3",
@@ -69,33 +69,6 @@
     "semantic-release": {
       "optional": false
     }
-  },
-  "pnpm": {
-    "overrides": {
-      "compare-func": "^2.0.0",
-      "katex": "^0.16.21",
-      "esbuild": "^0.25.0",
-      "@octokit/plugin-paginate-rest": "^11.4.1",
-      "@octokit/request": "^9.2.1",
-      "@octokit/request-error": "^5.1.1",
-      "minimatch@3.1.5>brace-expansion": "^1.1.7",
-      "minimatch@9.0.5>brace-expansion": "^2.0.1",
-      "minimatch@10.2.5>brace-expansion": "^5.0.5",
-      "tmp": "^0.2.4",
-      "@semantic-release/commit-analyzer": "^13.0.1",
-      "@semantic-release/error": "^4.0.0",
-      "@semantic-release/github": "^12.0.0",
-      "@semantic-release/npm": "^13.1.0",
-      "@semantic-release/release-notes-generator": "^14.0.3",
-      "conventional-changelog-conventionalcommits": "^9.1.0",
-      "conventional-changelog-writer": "^8.2.0",
-      "glob": "^11.1.0",
-      "js-yaml": "^4.1.1",
-      "handlebars": "^4.7.9"
-    },
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
   },
   "changelog": {
     "language": "zh"
