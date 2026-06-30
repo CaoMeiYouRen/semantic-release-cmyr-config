@@ -58,7 +58,7 @@
     "semantic-release": "^25.0.1",
     "tsdown": "^0.21.8",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.2",
+    "typescript": "^6.0.3",
     "vite": "^7.3.5",
     "vitest": "^4.1.9"
   },
