@@ -26,5 +26,5 @@ overrides:
   conventional-changelog-writer: ^8.2.0
   glob: ^11.1.0
   diff: ^5.2.2
-  js-yaml: ^4.1.1
+  js-yaml: ^4.2.0
   handlebars: ^4.7.9
