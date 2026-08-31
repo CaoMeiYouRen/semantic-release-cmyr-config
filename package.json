@@ -39,7 +39,7 @@
     "@semantic-release/changelog": "^7.0.0",
     "@semantic-release/git": "^10.0.1",
     "conventional-changelog-cmyr-config": "^3.0.0",
-    "conventional-changelog-writer": "^9.2.0"
+    "conventional-changelog-writer": "^9.2.1"
   },
   "devDependencies": {
     "@types/debug": "^4.1.13",
