@@ -32,3 +32,5 @@ overrides:
   diff: ^5.2.2
   js-yaml: ^4.3.2
   handlebars: ^4.7.9
+  undici@6: ^6.28.1
+  undici@7: ^7.29.1
