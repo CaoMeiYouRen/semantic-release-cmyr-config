@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { beforeAll, describe, expect, it } from 'vitest'
+import type { Options } from 'semantic-release'
 
 const require = createRequire(import.meta.url)
 const srRequire = createRequire(require.resolve('semantic-release/package.json'))
@@ -34,7 +35,7 @@ const baseContext = (commits: { hash: string, message: string }[]) => ({
 })
 
 describe('release 流程集成', () => {
-    let config: { plugins: unknown[] }
+    let config: Options
     let analyzeCommits: (options: unknown, context: unknown) => Promise<string | null>
     let generateNotes: (options: unknown, context: unknown) => Promise<string>
     let changelogPrepare: (options: unknown, context: unknown) => Promise<void>
@@ -42,7 +43,7 @@ describe('release 流程集成', () => {
     beforeAll(async () => {
         const { default: loaded } = await import('./index')
         config = loaded
-        const entries = config.plugins.map((plugin) => (Array.isArray(plugin) ? { name: plugin[0], options: plugin[1] } : { name: plugin as string, options: {} }))
+        const entries = (config.plugins ?? []).map((plugin) => (Array.isArray(plugin) ? { name: plugin[0], options: plugin[1] } : { name: plugin as string, options: {} }))
         const analyzer = await loadPlugin(entries[0].name as string)
         const notes = await loadPlugin(entries[1].name as string)
         const changelog = await loadPlugin(entries[2].name as string)
@@ -51,7 +52,7 @@ describe('release 流程集成', () => {
         changelogPrepare = (options, context) => (changelog.prepare ?? changelog.default.prepare)(options, context)
     })
 
-    const entries = () => config.plugins.map((plugin) => (Array.isArray(plugin) ? { name: plugin[0], options: plugin[1] } : { name: plugin as string, options: {} }))
+    const entries = () => (config.plugins ?? []).map((plugin) => (Array.isArray(plugin) ? { name: plugin[0], options: plugin[1] } : { name: plugin as string, options: {} }))
 
     it('chore 不触发发布', async () => {
         const commits = [{ hash: 'aaa1111', message: 'chore(deps): bump katex to ^0.18.2' }]

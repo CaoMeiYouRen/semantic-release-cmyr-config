@@ -15,14 +15,11 @@
         "experimentalDecorators": true,
         "removeComments": false,
         "resolveJsonModule": true,
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
+        "types": [
+            "node"
+        ],
         "esModuleInterop": true,
-        "baseUrl": ".",
-        "paths": {
-            "@/*": [
-                "src/*"
-            ]
-        },
         "lib": [
             "esnext",
             "dom",
@@ -37,7 +34,6 @@
     ],
     "exclude": [
         "node_modules",
-        "**/*.spec.ts",
         "**/node_modules/*"
     ]
 }
