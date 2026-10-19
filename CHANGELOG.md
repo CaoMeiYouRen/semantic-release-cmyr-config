@@ -1,5 +1,17 @@
 # semantic-release-cmyr-config
 
+# [1.1.0](https://github.com/CaoMeiYouRen/semantic-release-cmyr-config/compare/v1.0.2...v1.1.0) (2026-10-19)
+
+
+### ✨ 新功能
+
+* 提升 Node.js 最低版本要求至 22.22.2 / 24.15 ([dcb1525](https://github.com/CaoMeiYouRen/semantic-release-cmyr-config/commit/dcb1525))
+
+
+### 🐛 Bug 修复
+
+* 容错读取 package.json 并支持指定项目目录 ([c97c1f4](https://github.com/CaoMeiYouRen/semantic-release-cmyr-config/commit/c97c1f4))
+
 ## [1.0.2](https://github.com/CaoMeiYouRen/semantic-release-cmyr-config/compare/v1.0.1...v1.0.2) (2026-04-15)
 
 
