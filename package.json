@@ -32,8 +32,8 @@
     "start:tsx": "cross-env NODE_ENV=production tsx src/index.ts",
     "commit": "cz",
     "prepare": "husky",
-    "test": "vitest run --passWithNoTests",
-    "test:coverage": "vitest run --coverage --passWithNoTests"
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@semantic-release/changelog": "^7.0.0",
