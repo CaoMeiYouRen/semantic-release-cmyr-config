@@ -17,8 +17,8 @@ export function readPackageName(cwd: string = process.cwd()): string {
 
 /**
  * 创建默认配置。
- * 通过 `createConfig(readPackageName(cwd))` 可显式指定项目目录，
- * 适用于语义化版本编程式调用（context.cwd 与 process.cwd() 不一致）的场景。
+ * 需要从非 process.cwd() 的目录读取包名时，可显式传入：
+ * `createConfig(readPackageName('/path/to/project'))`
  */
 export function createConfig(name: string = ''): Options {
     return {
