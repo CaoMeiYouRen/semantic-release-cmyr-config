@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import { createConfig, readPackageName } from './index'
 
 const require = createRequire(import.meta.url)
 const srRequire = createRequire(require.resolve('semantic-release/package.json'))
@@ -17,24 +18,13 @@ const resolvePlugin = (name: string): string => {
 }
 
 const tempDirs: string[] = []
-const makeTempCwd = (packageJson: unknown) => {
+const makeTempDir = (packageJson?: string) => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'sr-cmyr-config-'))
     tempDirs.push(dir)
-    fs.writeFileSync(path.join(dir, 'package.json'), JSON.stringify(packageJson))
-    return dir
-}
-
-/** 模块在顶层读取 package.json，因此每次都要重置模块缓存并切换进程 cwd。 */
-const loadConfig = async (cwd: string) => {
-    const previousCwd = process.cwd()
-    process.chdir(cwd)
-    try {
-        vi.resetModules()
-        const { default: config } = await import('./index')
-        return config
-    } finally {
-        process.chdir(previousCwd)
+    if (packageJson !== undefined) {
+        fs.writeFileSync(path.join(dir, 'package.json'), packageJson)
     }
+    return dir
 }
 
 afterEach(() => {
@@ -45,12 +35,11 @@ afterEach(() => {
     }
 })
 
-describe('默认配置', () => {
-    it('按固定顺序声明全部插件', async () => {
-        const cwd = makeTempCwd({ name: 'demo-package' })
-        const config = await loadConfig(cwd)
+describe('createConfig', () => {
+    it('按固定顺序声明全部插件', () => {
+        const config = createConfig('demo-package')
 
-        expect(config.plugins.map((plugin) => (Array.isArray(plugin) ? plugin[0] : plugin))).toEqual([
+        expect(config.plugins?.map((plugin) => (Array.isArray(plugin) ? plugin[0] : plugin))).toEqual([
             '@semantic-release/commit-analyzer',
             '@semantic-release/release-notes-generator',
             '@semantic-release/changelog',
@@ -60,31 +49,41 @@ describe('默认配置', () => {
         ])
     })
 
-    it('两个 changelog 生成器都使用 cmyr 预设', async () => {
-        const cwd = makeTempCwd({ name: 'demo-package' })
-        const config = await loadConfig(cwd)
+    it('两个 changelog 生成器都使用 cmyr 预设', () => {
+        const config = createConfig('demo-package')
 
-        expect(config.plugins[0]).toEqual(['@semantic-release/commit-analyzer', { config: 'conventional-changelog-cmyr-config' }])
-        expect(config.plugins[1]).toEqual(['@semantic-release/release-notes-generator', { config: 'conventional-changelog-cmyr-config' }])
+        expect(config.plugins?.[0]).toEqual(['@semantic-release/commit-analyzer', { config: 'conventional-changelog-cmyr-config' }])
+        expect(config.plugins?.[1]).toEqual(['@semantic-release/release-notes-generator', { config: 'conventional-changelog-cmyr-config' }])
     })
 
-    it('CHANGELOG 标题取自当前项目的 package.json', async () => {
-        const cwd = makeTempCwd({ name: 'demo-package' })
-        const config = await loadConfig(cwd)
-        const changelog = config.plugins[2]
+    it('CHANGELOG 标题取自传入的项目名', () => {
+        const config = createConfig('demo-package')
 
-        expect(Array.isArray(changelog)).toBe(true)
-        expect((changelog as [string, { changelogFile: string, changelogTitle: string }])[1]).toEqual({
-            changelogFile: 'CHANGELOG.md',
-            changelogTitle: '# demo-package',
-        })
+        expect(config.plugins?.[2]).toEqual([
+            '@semantic-release/changelog',
+            {
+                changelogFile: 'CHANGELOG.md',
+                changelogTitle: '# demo-package',
+            },
+        ])
     })
 
-    it('git 插件只提交 CHANGELOG 与 package.json', async () => {
-        const cwd = makeTempCwd({ name: 'demo-package' })
-        const config = await loadConfig(cwd)
+    it('项目名为空时标题为空字符串，不会写出 # undefined', () => {
+        const config = createConfig()
 
-        expect(config.plugins[5]).toEqual(['@semantic-release/git', { assets: ['CHANGELOG.md', 'package.json'] }])
+        expect(config.plugins?.[2]).toEqual([
+            '@semantic-release/changelog',
+            {
+                changelogFile: 'CHANGELOG.md',
+                changelogTitle: '',
+            },
+        ])
+    })
+
+    it('git 插件只提交 CHANGELOG 与 package.json', () => {
+        const config = createConfig('demo-package')
+
+        expect(config.plugins?.[5]).toEqual(['@semantic-release/git', { assets: ['CHANGELOG.md', 'package.json'] }])
     })
 
     it.each([
@@ -97,5 +96,44 @@ describe('默认配置', () => {
         'conventional-changelog-cmyr-config',
     ])('插件 %s 可以被解析到', (name) => {
         expect(() => resolvePlugin(name)).not.toThrow()
+    })
+})
+
+describe('readPackageName', () => {
+    it('读取指定目录的 package.json name', () => {
+        const dir = makeTempDir(JSON.stringify({ name: 'demo-package' }))
+
+        expect(readPackageName(dir)).toBe('demo-package')
+    })
+
+    it('目录下没有 package.json 时返回空字符串', () => {
+        expect(readPackageName(makeTempDir())).toBe('')
+    })
+
+    it('package.json 损坏时返回空字符串', () => {
+        expect(readPackageName(makeTempDir('{oops'))).toBe('')
+    })
+
+    it('缺少 name 时返回空字符串', () => {
+        expect(readPackageName(makeTempDir(JSON.stringify({ version: '1.0.0' })))).toBe('')
+    })
+
+    it('默认导出使用当前工作目录的 package.json', async () => {
+        const dir = makeTempDir(JSON.stringify({ name: 'cwd-package' }))
+        const previousCwd = process.cwd()
+        process.chdir(dir)
+        try {
+            vi.resetModules()
+            const { default: config } = await import('./index')
+            expect(config.plugins?.[2]).toEqual([
+                '@semantic-release/changelog',
+                {
+                    changelogFile: 'CHANGELOG.md',
+                    changelogTitle: '# cwd-package',
+                },
+            ])
+        } finally {
+            process.chdir(previousCwd)
+        }
     })
 })
