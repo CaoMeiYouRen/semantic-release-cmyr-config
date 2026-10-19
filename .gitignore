@@ -38,3 +38,6 @@ dist
 temp
 # dependfix
 dependfix-reports/
+
+# 测试覆盖率产物
+coverage
